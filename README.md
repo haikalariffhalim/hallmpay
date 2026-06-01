@@ -11,32 +11,6 @@ HallmPay- Malaysian Payment Gateway
 
 <img src="./public/payment.png" alt="payment" />
 
-
-## Overall structure
-
-hallmpay/
-
-├── apps
-│   ├── api/src
-│   ├── engine/src
-│  
-│
-├── lib/src
-│   ├── hallmpay-core/
-│   ├── hallmpay-paynet/
-│   ├── hallmpay-fpx/
-│   ├── hallmpay-duitnow/
-│   ├── hallmpay-jompay/
-│   ├── hallmpay-db/
-│   ├── hallmpay-auth/
-│   ├── hallmpay-events/
-│   └── hallmpay-openapi/
-│
-└── convex/
-    ├── docker/
-    ├── migrations/
-    └── scripts/
-    
 <img src="./public/docs.png" alt="docs" />
 
 <img src="./public/changelog.png" alt="changelog" />

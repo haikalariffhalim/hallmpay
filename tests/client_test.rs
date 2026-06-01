@@ -1,4 +1,4 @@
-use hallmpay::{ ApiVersion, HallmPayError, PaymentChannel, PaymentIntentRequest};
+use hallmpay::{ApiVersion, HallmPayError, PaymentChannel, PaymentIntentRequest};
 use serde_json::json;
 
 #[tokio::test]
@@ -67,10 +67,11 @@ async fn test_get_transaction_404() {
         .build_with_base_url(&server.url())
         .unwrap();
 
-    let result: hallmpay::Result<hallmpay::Transaction> = client.get_transaction("nonexistent").await;
-    	assert!(result.is_err());
-     	assert!(matches!(result.unwrap_err(), HallmPayError::NotFound));
-      	mock.assert_async().await;
+    let result: hallmpay::Result<hallmpay::Transaction> =
+        client.get_transaction("nonexistent").await;
+    assert!(result.is_err());
+    assert!(matches!(result.unwrap_err(), HallmPayError::NotFound));
+    mock.assert_async().await;
 }
 
 #[tokio::test]
@@ -81,7 +82,8 @@ async fn test_v2_method_on_v1_returns_error() {
         .build_with_base_url("http://localhost:3000")
         .unwrap();
 
-    let result: hallmpay::Result<hallmpay::PaymentIntent> = client.get_payment_intent("pmtint_123").await;
+    let result: hallmpay::Result<hallmpay::PaymentIntent> =
+        client.get_payment_intent("pmtint_123").await;
     assert!(result.is_err());
     match result.unwrap_err() {
         HallmPayError::ApiVersionMismatch(method) => assert_eq!(method, "get_payment_intent"),
@@ -113,8 +115,8 @@ async fn test_fpx_banks_list() {
 
     let banks: Vec<hallmpay::FpxBank> = client.fpx_banks_list().await.unwrap();
     assert_eq!(banks.len(), 2);
-    assert_eq!(banks[0].name, "Maybank");
-    assert_eq!(banks[1].code, "CIMB");
+    assert_eq!(banks[0].bank_name, "Maybank");
+    assert_eq!(banks[1].bank_code, "CIMB");
     mock.assert_async().await;
 }
 
@@ -157,7 +159,8 @@ async fn test_validation_error_422() {
         checksum: None,
     };
 
-    let result: hallmpay::Result<hallmpay::PaymentIntent> = client.create_payment_intent(&request).await;
+    let result: hallmpay::Result<hallmpay::PaymentIntent> =
+        client.create_payment_intent(&request).await;
     assert!(result.is_err());
     match result.unwrap_err() {
         HallmPayError::Validation { message, errors } => {

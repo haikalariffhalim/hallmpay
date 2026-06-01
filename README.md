@@ -1,15 +1,21 @@
 # HallmPay
 
-HallmPay- Malaysian Payment Gateway API Provider Build with Rust 
+HallmPay- Malaysian Payment Gateway 
 
 [![Crates.io](https://img.shields.io/crates/v/hallmpay)](https://crates.io/crates/hallmpay)
 [![Docs.rs](https://docs.rs/hallmpay/badge.svg)](https://docs.rs/hallmpay)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
+<img src="./public/home.png" alt="home" />
+<img src="./public/fpx.png" alt="fpx" />
+
+<img src="./public/payment.png" alt="payment" />
+
+
 ## Overall structure
 
 hallmpay/
-│
+
 ├── apps
 │   ├── api/src
 │   ├── engine/src
@@ -30,6 +36,10 @@ hallmpay/
     ├── docker/
     ├── migrations/
     └── scripts/
+    
+<img src="./public/docs.png" alt="docs" />
+
+<img src="./public/changelog.png" alt="changelog" />
     
 ## Todo 
     

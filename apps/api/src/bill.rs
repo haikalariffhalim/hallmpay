@@ -3,7 +3,7 @@ use crate::error::HallmPayError;
 use crate::models::bill::{Bill, BillResponse};
 
 pub struct CreateBillBuilder<'a> {
-    client: &'a HallmPayClientClient,
+    client: &'a HallmPayClient,
     collection_id: String,
     email: String,
     name: String,
@@ -23,7 +23,7 @@ pub struct CreateBillBuilder<'a> {
 impl<'a> CreateBillBuilder<'a> {
     #[allow(clippy::too_many_arguments)]
     pub(crate) fn new(
-        client: &'a HallmPayClientClient,
+        client: &'a HallmPayClient,
         collection_id: impl Into<String>,
         email: impl Into<String>,
         name: impl Into<String>,
